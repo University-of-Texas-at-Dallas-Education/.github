@@ -1,37 +1,37 @@
-# Amplify
+# CometAI
 
-## Overview of Amplify
+## Overview of CometAI
 
-Amplify is Vanderbilt University's open-source enterprise platform for generative AI, designed to empower organizations with the ability to innovate across disciplines. By offering a flexible and cost-efficient chat-based interface, Amplify allows users to experiment with and deploy generative AI solutions tailored to their specific needs. Its architecture supports vendor independence, ensuring that users can select and switch between a variety of AI models, such as those from OpenAI and Anthropic, without being locked into a single provider.
+CometAI is UTD's enterprise platform for generative AI, designed to empower organizations with the ability to innovate across disciplines. By offering a flexible and cost-efficient chat-based interface, CometAI allows users to experiment with and deploy generative AI solutions tailored to their specific needs. Its architecture supports vendor independence, ensuring that users can select and switch between a variety of AI models, such as those from OpenAI and Anthropic, without being locked into a single provider.
 
 ## Key Use Cases
 
-Amplify has been deployed in diverse contexts, including:
+CometAI has been deployed in diverse contexts, including:
 * **Higher Education**: Streamlining content creation, such as generating quizzes, study guides, or visual aids for lectures.
 * **Administrative Operations**: Automating tasks like policy summarization and contract review to improve efficiency.
 * **Cross-Disciplinary Research**: Enabling teams from various fields to experiment with generative AI applications, such as data visualization or text generation, while maintaining control over their data.
-Amplify’s customization options, such as creating reusable templates and domain-specific assistants, make it an adaptable tool for institutional needs.
+CometAI’s customization options, such as creating reusable templates and domain-specific assistants, make it an adaptable tool for institutional needs.
 
 ## Open-Source Advantage
 
-As an open-source platform, Amplify offers the following benefits:
+As an open-source platform, CometAI offers the following benefits:
 * **Modification**: Users can tailor the platform to suit unique requirements.
-* **Accessibility**: Organizations can deploy Amplify in their own AWS environments, reducing dependency on external providers.
-* **Community-Driven Improvements**: Amplify’s open-source model fosters a collaborative ecosystem where users can contribute enhancements and share best practices.
+* **Accessibility**: Organizations can deploy CometAI in their own AWS environments, reducing dependency on external providers.
+* **Community-Driven Improvements**: CometAI’s open-source model fosters a collaborative ecosystem where users can contribute enhancements and share best practices.
 
-## Amplify Costs & Pricing Overview
+## CometAI Costs & Pricing Overview
 
-Amplify is an **open-source platform**, meaning there are no licensing fees to use it. However, users must cover costs associated with **hosting** and **AI token** usage based on the cloud provider and AI models.
+CometAI is an **open-source platform**, meaning there are no licensing fees to use it. However, users must cover costs associated with **hosting** and **AI token** usage based on the cloud provider and AI models.
 
 ### Estimating Costs
 
-Please Note: the minimum cost associated with hosting an instance of Amplify with no usage is ~$250/mo. This is due to the fact that there are some provisioned resources in AWS do not scale completely to zero, and there is some cost associated with keeping the instance alive.
+Please Note: the minimum cost associated with hosting an instance of CometAI with no usage is ~$250/mo. This is due to the fact that there are some provisioned resources in AWS do not scale completely to zero, and there is some cost associated with keeping the instance alive.
 
 * Hosting Costs:
-  * Users are responsible for paying for AWS costs associated with hosting Amplify.
+  * Users are responsible for paying for AWS costs associated with hosting CometAI.
   * Cost may vary based on usage and configuration.
 * AI Token Usage Costs:
-  * Amplify connects to AI models that charge per 1,000 input and output tokens (a token is approximately 4 characters of text).
+  * CometAI connects to AI models that charge per 1,000 input and output tokens (a token is approximately 4 characters of text).
   * Costs depend on the AI model used in your conversations.
 
 For more details on pricing, refer to:
@@ -44,16 +44,16 @@ For more details on pricing, refer to:
 
 ---
 
-# Getting Started With Amplify
+# Getting Started With CometAI
 
 ## Architecture
 
 <a href="Amplify_GenAI_Diag.png" target="_blank">
-  <img src="Amplify_GenAI_Diag.png" alt="Amplify GenAI Architecture" width="450" height="326">
+  <img src="Amplify_GenAI_Diag.png" alt="CometAI GenAI Architecture" width="450" height="326">
 </a>
 
 ## System Requirements
-To deploy and operate Amplify, the following system prerequisites are recommended:
+To deploy and operate CometAI, the following system prerequisites are recommended:
 * **Hardware/Software Requirements**:
   * AWS account with appropriate IAM permissions
   * Terraform installed and configured
@@ -88,20 +88,20 @@ Configure Terraform variables and initialize the environment with `terraform ini
 * Upload and configure necessary files, such as base prompts and endpoints, in S3.
 
 ---
-# How To Use Amplify
+# How To Use CometAI
 
 * [Using The Chat Interface](../docs/chat-interface.md)
 * [Conversations View](../docs/conversation-view.md)
 * [Sharing View](../docs/sharing-view.md)
 * Workspace View [Deprecated]
 * [Assistants, Templates, and Instructions](../docs/assistants-templates-instructions.md)
-* [How To Share in Amplify](../docs//sharing.md)
+* [How To Share in CometAI](../docs//sharing.md)
 
 ---
 
-## Setting Up Billing for Amplify’s Supported AI Models
+## Setting Up Billing for CometAI’s Supported AI Models
 
-Amplify is open-source and free to use, but users are responsible for AI model costs incurred through Amazon Bedrock, OpenAI, or Azure OpenAI. This guide walks you through setting up billing for these services to ensure uninterrupted access to AI-powered features.
+CometAI is open-source and free to use, but users are responsible for AI model costs incurred through Amazon Bedrock, OpenAI, or Azure OpenAI. This guide walks you through setting up billing for these services to ensure uninterrupted access to AI-powered features.
 
 ### Setting Up Billing for Amazon Bedrock
 Amazon Bedrock provides access to Anthropic Claude and Mistral models. To enable billing for AI model usage:
@@ -121,7 +121,7 @@ Amazon Bedrock provides access to Anthropic Claude and Mistral models. To enable
 * Use the IAM console to grant access to specific teams.
 
 ### Setting Up Billing for OpenAI API (GPT Models)
-To use OpenAI’s GPT models in Amplify, you need an OpenAI API key with a valid billing account.
+To use OpenAI’s GPT models in CometAI, you need an OpenAI API key with a valid billing account.
 
 **Step 1: Create an OpenAI Account & API Key**
 * Go to [OpenAI Platform](https://platform.openai.com/).
@@ -154,7 +154,7 @@ Azure OpenAI provides access to GPT models (GPT-3.5, GPT-4, GPT-4o, etc.) within
 **Step 3: Generate an API Key**
 * Navigate to Azure OpenAI Resource.
 * Go to Keys and Endpoint.
-* Copy your API Key and endpoint for Amplify integration.
+* Copy your API Key and endpoint for CometAI integration.
 
 #### Monitoring & Managing Costs
 To avoid unexpected expenses, follow these best practices:
@@ -165,20 +165,20 @@ To avoid unexpected expenses, follow these best practices:
 * ✔ Enable spending caps to control monthly costs.
 
 ### Next Steps
-Once billing is set up, you can integrate your API key with Amplify to start using AI-powered features
+Once billing is set up, you can integrate your API key with CometAI to start using AI-powered features
 
 ## In Depth Deployment Steps
 
-These are the deployment instructions to deploy Amplify-GenAI in your own AWS environment. This deployment will create many resources in your account. Please be aware that there are costs associated with deploying the following application.
+These are the deployment instructions to deploy CometAI-GenAI in your own AWS environment. This deployment will create many resources in your account. Please be aware that there are costs associated with deploying the following application.
 
 ### 1. Clone Repositories
 
-- Clone all three repositories (`amplify-genai-frontend`, `amplify-genai-backend`, and `amplify-genai-iac`) from `https://github.com/gaiin-platform` into the same directory on your local machine.
+- Clone all three repositories (`CometAI-genai-frontend`, `CometAI-genai-backend`, and `CometAI-genai-iac`) from `https://github.com/gaiin-platform` into the same directory on your local machine.
 
 ### 2. Terraform Initialization and Application
 
-- Navigate to the `amplify-genai-iac` project on your local machine.
-- Configure the Terraform variables by copying the `amplify-genai-iac/<env>/terraform.tfvars_sample` file to `amplify-genai-iac/<env>/terraform.tfvars`.
+- Navigate to the `CometAI-genai-iac` project on your local machine.
+- Configure the Terraform variables by copying the `CometAI-genai-iac/<env>/terraform.tfvars_sample` file to `CometAI-genai-iac/<env>/terraform.tfvars`.
 - Update the `terraform.tfvars` file with the specific values for your deployment. You will need to configure the following variables:
   - Load balancing vars: `public_subnet_cidrs`, `private_subnet_cidrs`, `alb_name`, `domain_name`, `app_route53_zone_id`
   - Cognito vars: `cognito_domain`, `cognito_route53_zone_id`
@@ -189,22 +189,22 @@ These are the deployment instructions to deploy Amplify-GenAI in your own AWS en
 ### 3. Configure Serverless Framework Variables
 
 - After applying Terraform configurations, save the outputs from the Terraform state. These will be used in the variables needed for the Serverless Framework deployment.
-- Create and configure a `amplify-genai-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `amplify-genai-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `amplify-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
+- Create and configure a `CometAI-genai-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `CometAI-genai-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `CometAI-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
 
 ### 4. Backend Package Installation
 
-- Install the necessary Serverless plugins by running the following commands in the `amplify-genai-backend` directory:
+- Install the necessary Serverless plugins by running the following commands in the `CometAI-genai-backend` directory:
 
   ```sh
   npm install 
   ```
 
 
-- For the JavaScript dependencies, navigate to the `amplify-genai-backend/amplify-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
+- For the JavaScript dependencies, navigate to the `CometAI-genai-backend/CometAI-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
 
 ### 5. Deploy Serverless Backend Services
 
-- To deploy the Python 3.11 backend services using the Serverless Framework, navigate to the `amplify-genai-backend` directory.
+- To deploy the Python 3.11 backend services using the Serverless Framework, navigate to the `CometAI-genai-backend` directory.
 - Deploy all backend lambdas by running the following commands:
 
   ```sh
@@ -231,18 +231,18 @@ After deploying the backend services, you will need to update certain variables 
 
 - Obtain the following environment specific (e.g., `dev`, `prod`) variables from the deployed backend services and AWS Console:
   - `API_BASE_URL`: The base URL for your API endpoints. This should be the custom API domain within the API gateway console.
-  - `CHAT_ENDPOINT`: The exported variable from the `amplify-js-<env>`` CloudFormation stack.
+  - `CHAT_ENDPOINT`: The exported variable from the `CometAI-js-<env>`` CloudFormation stack.
   - `COGNITO_CLIENT_ID`: Found in the App Client settings within the Cognito console on AWS.
   - `COGNITO_ISSUER`: The base URL for your Cognito user pool, found in the Cognito console on AWS.
   - `COGNITO_DOMAIN`: The custom Cognito domain, found in the App integration tab of the Cognito console on AWS.
 
-- Update the `amplify-genai-iac/<env>/terraform.tfvars` file with the newly obtained values for the respective variables.
+- Update the `CometAI-genai-iac/<env>/terraform.tfvars` file with the newly obtained values for the respective variables.
 
-- Apply the updated Terraform configuration by running `terraform apply` within the `amplify-genai-iac/<env>` project directory.
+- Apply the updated Terraform configuration by running `terraform apply` within the `CometAI-genai-iac/<env>` project directory.
 
 Additionally, certain secrets must be updated manually in the AWS Secrets Manager or via AWS CLI:
 
-- Navigate to the AWS Secrets Manager and locate the secret named `amplify-app-secrets`.
+- Navigate to the AWS Secrets Manager and locate the secret named `CometAI-app-secrets`.
 - Manually update the following secret values:
   - `COGNITO_CLIENT_SECRET`: Can be found in the App Client settings within the Cognito console in AWS.
   - `NEXTAUTH_SECRET`: Generate a new random secret for NextAuth.
@@ -258,7 +258,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
     docker build -t <env>-<ecr_repo_name> .
     ```
 
-  Replace `env` with the deployment environment, and `ecr_repo_name` is the name given in the `amplify-genai-iac/<env>/terraform.tfvars` file.
+  Replace `env` with the deployment environment, and `ecr_repo_name` is the name given in the `CometAI-genai-iac/<env>/terraform.tfvars` file.
 
   - Tag the Docker image with the `latest` tag and a unique tag that includes the date and SHA digest of the image.
   - Push the Docker image to the Amazon ECR repository with the `docker push` command.
@@ -266,8 +266,8 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
 
 ### 8. Configure S3, Secrets, and Azure Endpoints
 
-- Upload the `amplify-genai-backend/misc_deployment_files/base.json` file to the `amplify-<deployment>-lambda-<env>-base-prompts` S3 bucket.
-- Configure the `amplify-genai-backend/misc_deployment_files/endpoints.json` file with your Azure endpoints and associated keys. Update the AWS Secrets Manager secret titled `<env>-openai-endpoints`.
+- Upload the `CometAI-genai-backend/misc_deployment_files/base.json` file to the `CometAI-<deployment>-lambda-<env>-base-prompts` S3 bucket.
+- Configure the `CometAI-genai-backend/misc_deployment_files/endpoints.json` file with your Azure endpoints and associated keys. Update the AWS Secrets Manager secret titled `<env>-openai-endpoints`.
 
 ### 9. Clean Up
 
@@ -279,7 +279,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
 - Always verify the output of each command to ensure that there are no errors before proceeding to the next step.
 - The `NEXTAUTH_SECRET` can be an arbitrary string.
 - It is recommended to document the values of important variables and outputs for future reference and troubleshooting.
-- Below are the currently supported models that Amplify can use. 
+- Below are the currently supported models that CometAI can use. 
   
   #### Anthropic (via Amazon Bedrock)
     - `anthropic.claude-instant-v1`
@@ -302,7 +302,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
     - `mistral.mixtral-8x7b-instruct-v0:1`
     - `mistral.mistral-large-2402-v1:0`
 
-  Populate `AVAILABLE_MODELS` with a comma-delimited list of the supported models you wish to make available. To use the Anthropic or Mistral models, you will need to enable them in your AWS account and then update the `AVAILABLE_MODELS` environment variable in the `amplify-genai-iac` project and run `terraform apply`. For Bedrock models, please ensure you have requested access in the appropriate regions. 
+  Populate `AVAILABLE_MODELS` with a comma-delimited list of the supported models you wish to make available. To use the Anthropic or Mistral models, you will need to enable them in your AWS account and then update the `AVAILABLE_MODELS` environment variable in the `CometAI-genai-iac` project and run `terraform apply`. For Bedrock models, please ensure you have requested access in the appropriate regions. 
 
   Example:
   ```
@@ -312,7 +312,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
   After the `AVAILABLE_MODELS` environment variable has been updated, you will need to redeploy the AWS ECS service.
 
 - Ensure `DEFAULT_MODEL` is a model listed within `AVAILABLE_MODELS`.
-- If you have any questions or encounter issues during the deployment process, please email amplify@vanderbilt.edu for assistance.
+- If you have any questions or encounter issues during the deployment process, please email CometAI@vanderbilt.edu for assistance.
 
 Copyright (c) 2024 Vanderbilt University  
 Authors: Jules White, Allen Karns, Karely Rodriguez, Max Moundas
