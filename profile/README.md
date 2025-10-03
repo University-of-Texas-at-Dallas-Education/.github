@@ -173,12 +173,12 @@ These are the deployment instructions to deploy CometAI-GenAI in your own AWS en
 
 ### 1. Clone Repositories
 
-- Clone all three repositories (`CometAI-genai-frontend`, `CometAI-genai-backend`, and `CometAI-genai-iac`) from `https://github.com/gaiin-platform` into the same directory on your local machine.
+- Clone all three repositories (`CometAI-frontend`, `CometAI-backend`, and `CometAI-iac`) from `https://github.com/gaiin-platform` into the same directory on your local machine.
 
 ### 2. Terraform Initialization and Application
 
-- Navigate to the `CometAI-genai-iac` project on your local machine.
-- Configure the Terraform variables by copying the `CometAI-genai-iac/<env>/terraform.tfvars_sample` file to `CometAI-genai-iac/<env>/terraform.tfvars`.
+- Navigate to the `CometAI-iac` project on your local machine.
+- Configure the Terraform variables by copying the `CometAI-iac/<env>/terraform.tfvars_sample` file to `CometAI-iac/<env>/terraform.tfvars`.
 - Update the `terraform.tfvars` file with the specific values for your deployment. You will need to configure the following variables:
   - Load balancing vars: `public_subnet_cidrs`, `private_subnet_cidrs`, `alb_name`, `domain_name`, `app_route53_zone_id`
   - Cognito vars: `cognito_domain`, `cognito_route53_zone_id`
@@ -189,22 +189,22 @@ These are the deployment instructions to deploy CometAI-GenAI in your own AWS en
 ### 3. Configure Serverless Framework Variables
 
 - After applying Terraform configurations, save the outputs from the Terraform state. These will be used in the variables needed for the Serverless Framework deployment.
-- Create and configure a `CometAI-genai-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `CometAI-genai-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `CometAI-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
+- Create and configure a `CometAI-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `CometAI-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `CometAI-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
 
 ### 4. Backend Package Installation
 
-- Install the necessary Serverless plugins by running the following commands in the `CometAI-genai-backend` directory:
+- Install the necessary Serverless plugins by running the following commands in the `CometAI-backend` directory:
 
   ```sh
   npm install 
   ```
 
 
-- For the JavaScript dependencies, navigate to the `CometAI-genai-backend/CometAI-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
+- For the JavaScript dependencies, navigate to the `CometAI-backend/CometAI-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
 
 ### 5. Deploy Serverless Backend Services
 
-- To deploy the Python 3.11 backend services using the Serverless Framework, navigate to the `CometAI-genai-backend` directory.
+- To deploy the Python 3.11 backend services using the Serverless Framework, navigate to the `CometAI-backend` directory.
 - Deploy all backend lambdas by running the following commands:
 
   ```sh
@@ -236,9 +236,9 @@ After deploying the backend services, you will need to update certain variables 
   - `COGNITO_ISSUER`: The base URL for your Cognito user pool, found in the Cognito console on AWS.
   - `COGNITO_DOMAIN`: The custom Cognito domain, found in the App integration tab of the Cognito console on AWS.
 
-- Update the `CometAI-genai-iac/<env>/terraform.tfvars` file with the newly obtained values for the respective variables.
+- Update the `CometAI-iac/<env>/terraform.tfvars` file with the newly obtained values for the respective variables.
 
-- Apply the updated Terraform configuration by running `terraform apply` within the `CometAI-genai-iac/<env>` project directory.
+- Apply the updated Terraform configuration by running `terraform apply` within the `cometai-iac/<env>` project directory.
 
 Additionally, certain secrets must be updated manually in the AWS Secrets Manager or via AWS CLI:
 
@@ -258,7 +258,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
     docker build -t <env>-<ecr_repo_name> .
     ```
 
-  Replace `env` with the deployment environment, and `ecr_repo_name` is the name given in the `CometAI-genai-iac/<env>/terraform.tfvars` file.
+  Replace `env` with the deployment environment, and `ecr_repo_name` is the name given in the `CometAI-iac/<env>/terraform.tfvars` file.
 
   - Tag the Docker image with the `latest` tag and a unique tag that includes the date and SHA digest of the image.
   - Push the Docker image to the Amazon ECR repository with the `docker push` command.
@@ -266,8 +266,8 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
 
 ### 8. Configure S3, Secrets, and Azure Endpoints
 
-- Upload the `CometAI-genai-backend/misc_deployment_files/base.json` file to the `CometAI-<deployment>-lambda-<env>-base-prompts` S3 bucket.
-- Configure the `CometAI-genai-backend/misc_deployment_files/endpoints.json` file with your Azure endpoints and associated keys. Update the AWS Secrets Manager secret titled `<env>-openai-endpoints`.
+- Upload the `CometAI-backend/misc_deployment_files/base.json` file to the `CometAI-<deployment>-lambda-<env>-base-prompts` S3 bucket.
+- Configure the `CometAI-backend/misc_deployment_files/endpoints.json` file with your Azure endpoints and associated keys. Update the AWS Secrets Manager secret titled `<env>-openai-endpoints`.
 
 ### 9. Clean Up
 
@@ -302,7 +302,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
     - `mistral.mixtral-8x7b-instruct-v0:1`
     - `mistral.mistral-large-2402-v1:0`
 
-  Populate `AVAILABLE_MODELS` with a comma-delimited list of the supported models you wish to make available. To use the Anthropic or Mistral models, you will need to enable them in your AWS account and then update the `AVAILABLE_MODELS` environment variable in the `CometAI-genai-iac` project and run `terraform apply`. For Bedrock models, please ensure you have requested access in the appropriate regions. 
+  Populate `AVAILABLE_MODELS` with a comma-delimited list of the supported models you wish to make available. To use the Anthropic or Mistral models, you will need to enable them in your AWS account and then update the `AVAILABLE_MODELS` environment variable in the `CometAI-iac` project and run `terraform apply`. For Bedrock models, please ensure you have requested access in the appropriate regions. 
 
   Example:
   ```
@@ -312,7 +312,7 @@ Additionally, certain secrets must be updated manually in the AWS Secrets Manage
   After the `AVAILABLE_MODELS` environment variable has been updated, you will need to redeploy the AWS ECS service.
 
 - Ensure `DEFAULT_MODEL` is a model listed within `AVAILABLE_MODELS`.
-- If you have any questions or encounter issues during the deployment process, please email CometAI@vanderbilt.edu for assistance.
+- If you have any questions or encounter issues during the deployment process, please email cometai@utdallas.edu for assistance.
 
 Copyright (c) 2024 Vanderbilt University  
 Authors: Jules White, Allen Karns, Karely Rodriguez, Max Moundas
