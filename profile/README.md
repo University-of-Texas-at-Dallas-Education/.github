@@ -173,7 +173,8 @@ These are the deployment instructions to deploy CometAI-GenAI in your own AWS en
 
 ### 1. Clone Repositories
 
-- Clone all three repositories (`CometAI-frontend`, `CometAI-backend`, and `CometAI-iac`) from `https://github.com/gaiin-platform` into the same directory on your local machine.
+- Clone all three repositories (`CometAI-frontend`, `CometAI-backend`, and `CometAI-iac`) from `https://github.com/University-of-Texas-at-Dallas-Education` into the same directory on your local machine. Also, please note that since these repositories are private, only users with the necessary access can clone them.
+
 
 ### 2. Terraform Initialization and Application
 
@@ -189,7 +190,7 @@ These are the deployment instructions to deploy CometAI-GenAI in your own AWS en
 ### 3. Configure Serverless Framework Variables
 
 - After applying Terraform configurations, save the outputs from the Terraform state. These will be used in the variables needed for the Serverless Framework deployment.
-- Create and configure a `CometAI-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `CometAI-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `CometAI-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
+- Create and configure a `CometAI-backend/var/<env>-var.yml` file using the values from the Terraform outputs. Use `CometAI-backend/<env>-var.yml-example` as a reference for the required format and variables. You will need to configure all variables in the `amplify-lambda` section. The reference sample includes comments to denote which variable from the Terraform outputs are to be used.
 
 ### 4. Backend Package Installation
 
@@ -200,7 +201,7 @@ These are the deployment instructions to deploy CometAI-GenAI in your own AWS en
   ```
 
 
-- For the JavaScript dependencies, navigate to the `CometAI-backend/CometAI-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
+- For the JavaScript dependencies, navigate to the `CometAI-backend/amplify-lambda-js` directory and run `npm install` to install the necessary Node.js packages.
 
 ### 5. Deploy Serverless Backend Services
 
@@ -231,7 +232,7 @@ After deploying the backend services, you will need to update certain variables 
 
 - Obtain the following environment specific (e.g., `dev`, `prod`) variables from the deployed backend services and AWS Console:
   - `API_BASE_URL`: The base URL for your API endpoints. This should be the custom API domain within the API gateway console.
-  - `CHAT_ENDPOINT`: The exported variable from the `CometAI-js-<env>`` CloudFormation stack.
+  - `CHAT_ENDPOINT`: The exported variable from the `amplify-js-<env>`` CloudFormation stack.
   - `COGNITO_CLIENT_ID`: Found in the App Client settings within the Cognito console on AWS.
   - `COGNITO_ISSUER`: The base URL for your Cognito user pool, found in the Cognito console on AWS.
   - `COGNITO_DOMAIN`: The custom Cognito domain, found in the App integration tab of the Cognito console on AWS.
